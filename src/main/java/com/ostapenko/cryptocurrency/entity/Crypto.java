@@ -10,8 +10,8 @@ import java.util.Date;
 
 @Document
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor //will generate a constructor with no parameters
+@AllArgsConstructor //generates a constructor with 1 parameter for each field in your class
 public class Crypto {
     @Id
     private String id;
