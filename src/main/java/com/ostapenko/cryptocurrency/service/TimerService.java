@@ -16,6 +16,9 @@ public class TimerService extends TimerTask {
     public static final String ETH = "ETH";
     public static final String XPR = "XPR";
 
+    @Autowired
+    private TimerRepository timerRepository;
+
     @Override
     public void run() {
         try {
@@ -26,9 +29,6 @@ public class TimerService extends TimerTask {
             e.printStackTrace();
         }
     }
-
-    @Autowired
-    private TimerRepository timerRepository;
 
     public Crypto update(String curr1, String curr2) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
