@@ -1,0 +1,24 @@
+{
+  "pairs": [
+    {
+      "symbol1": "BTC",
+      "symbol2": "USD",
+      "pricePrecision": "1",
+      "minLotSize": 0.0004,
+      "minLotSizeS2": 10,
+      "maxLotSize": null,
+      "minPrice": "3500",
+      "maxPrice": "350000"
+    },
+    {
+      "symbol1": "ZAP",
+      "symbol2": "USD",
+      "pricePrecision": "5",
+      "minLotSize": 139.837788,
+      "minLotSizeS2": 10,
+      "maxLotSize": null,
+      "minPrice": "0.00490",
+      "maxPrice": "10.39999"
+    }
+  ]
+}

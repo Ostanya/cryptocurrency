@@ -1,23 +1,31 @@
 package com.ostapenko.cryptocurrency.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.Date;
 
 @Document
-@Data
-@NoArgsConstructor //will generate a constructor with no parameters
-@AllArgsConstructor //generates a constructor with 1 parameter for each field in your class
+@Getter
+@Setter
 public class Crypto {
     @Id
-    private String id;
+    private int id;
 
-    private String curr1;
-    private String curr2;
-    private double lprice;
-    private Date createdAt;
+    @Field("name")
+    private String currencyName;
+    private String usd;
+
+    @Field("price_precision")
+    private int pricePrecision;
+
+    @Field("min_price")
+    private double minPrice;
+
+    @Field("max_price")
+    private double maxPrice;
 }
