@@ -23,9 +23,9 @@ public class Crypto {
     @Field("price_precision")
     private int pricePrecision;
 
-    @Field("min_price")
-    private double minPrice;
+    @Field("lprice")
+    private double Lprice;
 
-    @Field("max_price")
-    private double maxPrice;
+    @Field("hprice")
+    private double Hprice;
 }

@@ -45,7 +45,7 @@ public class CryptoCurrService {
         Query query = new Query();
         query.addCriteria(Criteria.where("name").is(name).
                 and("price").is(repository.findAll().
-                        stream().min(Comparator.comparing(Crypto::getMinPrice))));
+                        stream().min(Comparator.comparing(Crypto::getLprice))));
 
         return mongoTemplate.findOne(query, Crypto.class);
     }
@@ -57,14 +57,14 @@ public class CryptoCurrService {
         Query query = new Query();
         query.addCriteria(Criteria.where("name").is(name).
                 and("price").is(repository.findAll().
-                        stream().max(Comparator.comparing(Crypto::getMaxPrice))));
+                        stream().max(Comparator.comparing(Crypto::getHprice))));
 
         return mongoTemplate.findOne(query, Crypto.class);
     }
 
     public List<Crypto> findSelectedPageWithSelectedNumbers(int page, int size) {
         return pageRepository.findAll(PageRequest.of(page, size)).
-                stream().sorted(Comparator.comparingDouble(Crypto::getMinPrice)).
+                stream().sorted(Comparator.comparingDouble(Crypto::getLprice)).
                 collect(Collectors.toList());
     }
 
@@ -78,7 +78,7 @@ public class CryptoCurrService {
         try {
             ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
 
-            String[] currencyExport = {"name", "min_price", "max_price"};
+            String[] currencyExport = {"name", "lprice", "hprice"};
 
             for(Crypto currency : repository.findAll()) {
                 csvWriter.write(currency, currencyExport);
