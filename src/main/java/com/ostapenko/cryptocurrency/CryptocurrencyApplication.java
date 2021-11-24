@@ -27,7 +27,7 @@ public class CryptocurrencyApplication {
 	}
 
 	@Bean
-	@Scheduled(cron = "*/10 * * * *")
+	@Scheduled(cron = "*/10 * * * *") //timer
 	public void loader() {
 		ObjectMapper mapper = new ObjectMapper();
 		TypeReference<List<Crypto>> typeReference = new TypeReference<>() {};
